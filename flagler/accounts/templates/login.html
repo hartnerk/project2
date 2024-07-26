@@ -1,0 +1,107 @@
+{% load static %}
+
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Flagler - Convertable Bond Trading</title>
+        <meta name="description" content="Fame is a beautiful Bootstrap 4 template for Coming Soon landing pages." /> 
+
+        <!--Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i" rel="stylesheet">
+
+        <!--vendors styles-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+
+        <!-- Bootstrap CSS / Color Scheme -->
+        <link rel="stylesheet" type="text/css" href="{% static 'splash/style.css' %}" id="theme-color">
+    </head>
+    <body data-spy="scroll" data-target="#fame-navbar" data-offset="0">
+
+        <!--navigation-->
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top sticky-navigation" id="fame-navbar">
+            <a class="navbar-brand" href="index.html" >
+                Flagler
+            </a>
+            <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" 
+                    data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span data-feather="menu"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                {% if request.user.is_authenticated %}
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="#about">Research</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="#services">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="#blog">Account</a>
+                    </li>
+                </ul>
+                {% else %}
+                  <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="{% url 'login' %}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="{% url 'signup' %}">Signup</a>
+                    </li>
+                  </ul>
+                {% endif %}
+            </div>
+        </nav>
+
+        <!--hero header-->
+        <section class="py-7 py-md-0 bg-hero" id="home" style="background-image: url('static/img/parallex.jpg')">
+            <div class="container">
+                <div class="row vh-md-100">
+                    <div class="col-md-6 col-sm-10 my-auto mx-auto text-center">
+                        <h1 class="display-4 text-white" >Flagler</h1>
+                        <p class="lead text-light mb-5">Welcome to the Beta.</p>
+                        <h1>Login</h1>
+                        <form method="POST">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button class="btn btn-primary page-scroll" type="submit">Login</button>
+                            <a href="{% url 'signup' %}">
+                            Dont have Account Create
+                            </a>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--footer / contact-->
+        <footer class="py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 my-auto text-center text-md-left">
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <ul class="list-inline social social-rounded social-sm mb-0">
+                            <li>For more information, see our Disclosures and Privacy Policy.
+                            Convertable Bonds can are risky and aren’t suitable for all investors. To learn more, read the Bonds Disclosure Document.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                </div>
+            </div>
+        </footer>
+
+        <!--scroll to top-->
+        <div class="scroll-top">
+            <i class="fa fa-angle-up" aria-hidden="true"></i>
+        </div>
+
+
+    </body>
+</html>

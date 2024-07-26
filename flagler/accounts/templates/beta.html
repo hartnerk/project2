@@ -1,0 +1,330 @@
+{% load static %}
+
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Flagler - Convertable Bond Trading</title>
+        <meta name="description" content="Fame is a beautiful Bootstrap 4 template for Coming Soon landing pages." /> 
+
+        <!--Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i" rel="stylesheet">
+
+        <!--vendors styles-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
+
+        <!-- Bootstrap CSS / Color Scheme -->
+        <link rel="stylesheet" type="text/css" href="{% static 'splash/style.css' %}" id="theme-color">
+    </head>
+    <body data-spy="scroll" data-target="#fame-navbar" data-offset="0">
+
+        <!--navigation-->
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top sticky-navigation" id="fame-navbar">
+            <a class="navbar-brand" href="index.html" >
+                Flagler
+            </a>
+            <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" 
+                    data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span data-feather="menu"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                {% if request.user.is_authenticated %}
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="#about">Research</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="#services">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="#blog">Account</a>
+                    </li>
+                </ul>
+                {% else %}
+                  <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="{% url 'login' %}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="{% url 'signup' %}">Signup</a>
+                    </li>
+                  </ul>
+                {% endif %}
+            </div>
+        </nav>
+
+        <!--hero header-->
+        <section class="py-7 py-md-0 bg-hero" id="home" style="background-image: url('static/img/parallex.jpg')">
+            <div class="container">
+                <div class="row vh-md-100">
+                    <div class="col-md-6 col-sm-10 my-auto mx-auto text-center">
+                        <h1 class="display-4 text-white" >Flagler</h1>
+                        <p class="lead text-light mb-5">Welcome to the Beta.</p>
+
+                        {% if request.user.is_authenticated %}
+                        <p>{{ request.user.username }}</p>
+                        <a href="{% url 'logout' %}">Logout</a>
+                      {% else %}
+
+                      {% endif %}
+
+                      <h1>Welcome!</h1>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        {% if request.user.is_authenticated %}
+        <!-- about section -->
+        <section class="py-7 bg-light" id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7 mx-auto text-center">
+                        <h2 class="text-capitalize">Search:</h2>
+                        <p class="lead text-muted">
+                            Empowering retail investors, in democratizing access to financial tools.
+                        </p>
+                        <div class="divider mx-auto bg-primary"></div>
+                    </div>
+                </div>
+                    <p>Fintech has made significant strides in democratizing access to investment tools for retail investors, but there remains a gap in the accessibility of certain financial instruments, notably corporate bonds. </p>
+                    <p>However, amidst this progress, convertible debt stands out as a promising option. Convertible bonds offer investors the opportunity to benefit from potential stock price appreciation while providing downside protection through their fixed-income characteristics.  </p>
+                    <p>This hybrid nature makes convertible debt an attractive option, especially in volatile markets, and offers companies a flexible source of financing at lower interest rates compared to traditional debt instruments. By including convertible debt in retail investment offerings, fintech platforms can further empower investors while providing companies with efficient capital-raising solutions. </p>
+                        <!-- <a href="#" class="btn btn-primary">Read more</a> -->
+                </div>
+            </div>
+        </section>
+
+        <!-- services section -->
+        <section class="py-7" id="services">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7 mx-auto text-center">
+                        <h2 class="text-capitalize">What we do</h2>
+                        <p class="lead text-muted">
+                            Provide a platform to sell convertable debt. 
+                        </p>
+                        <div class="divider mx-auto bg-primary"></div>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-md-4 col-sm-6 mb-3">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <div class="icon-box">
+                                    <div class="icon-box-inner small-xs text-primary">
+                                        <span data-feather="headphones" width="30" height="30"></span>
+                                    </div>
+                                </div>
+                                <h5 class="mt-0 mb-3">Mobility</h5>
+                                Provides convenient and accessible assest management on-the-go. <br/> 
+                                <!-- <a href="#">Learn more</a> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 mb-3">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <div class="icon-box">
+                                    <div class="icon-box-inner small-xs text-primary">
+                                        <span data-feather="monitor" width="30" height="30"></span>
+                                    </div>
+                                </div>
+                                <h5 class="mt-0 mb-3">Access</h5>
+                                Democratizes investment opportunities and fosters financial inclusivity. <br/> 
+                                <!-- <a href="#">Learn more</a> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 mb-3">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <div class="icon-box">
+                                    <div class="icon-box-inner small-xs text-primary">
+                                        <span data-feather="layout" width="30" height="30"></span>
+                                    </div>
+                                </div>
+                                <h5 class="mt-0 mb-3">Education</h5>
+                                Informed investor decision-making.. <br/> 
+                                <!-- <a href="#">Learn more</a> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--team section-->
+        <section class="py-7 bg-light " id="team">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-7 mx-auto text-center">
+                        <h2 class="text-capitalize">Meet our team</h2>
+                        <p class="lead text-muted">
+                            Diverse team that has both successful exits and finance experience creates a dynamic and driven group poised for success. 
+                        </p>
+                        <div class="divider mx-auto bg-primary"></div>
+                    </div>
+                </div>
+                <div class="row mt-5 teams">
+                    <div class="col-md-4 text-center">
+                        <a href="#"><img src="{% static 'img/team-1.jpg' %}" class="img-team" alt="Team 1"/></a>
+                        <h5 class="mt-3">John Doe</h5>
+                        <p>Founder & Designer</p>
+                        <div class="social-icons">
+                            <a href="#" class="mr-2"><em class="fa fa-facebook"></em></a>
+                            <a href="#" class="mr-2"><em class="fa fa-linkedin"></em></a>
+                            <!-- <a href="#"><em class="fa fa-dribbble"></em></a> -->
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <a href="#"><img src="{% static 'img/team-1.jpg' %}"  class="img-team" alt="Team 2"/></a>
+                        <h5 class="mt-3">David Collin</h5>
+                        <p>Adviser</p>
+                        <div class="social-icons">
+                            <a href="#" class="mr-2"><em class="fa fa-facebook"></em></a>
+                            <a href="#" class="mr-2"><em class="fa fa-linkedin"></em></a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <a href="#"><img src="{% static 'img/team-1.jpg' %}"  class="img-team" alt="Team 3"/></a>
+                        <h5 class="mt-3">Selena Jones</h5>
+                        <p>Broker</p>
+                        <div class="social-icons">
+                            <a href="#" class="mr-2"><em class="fa fa-facebook"></em></a>
+                            <a href="#" class="mr-2"><em class="fa fa-linkedin"></em></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--blog section-->
+        <section class="py-7" id="blog">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 mx-auto text-center">
+                        <h2 class="text-capitalize">From our blog</h2>
+                        <p class="lead text-muted">
+                            Expore further resources on the investment opportunities and regulatory frameworks. Coupled with educational materials to essential insights into investment risks and protections, empowering informed decision-making. 
+                        </p>
+                        <div class="divider mx-auto bg-primary"></div>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <a href="#">
+                                <img class="card-img-top img-raised" src="{% static 'img/work-1.jpg' %}" alt="Blog 1">
+                            </a>
+                            <div class="card-body px-0">
+                                <h4 class="card-title mb-2"><a href="#">Investment opportunity. </a></h4>
+                                <p class="text-muted small-xl mb-2">January 27, 2023</p>
+                                <p class="card-text">Review the investment opportunity business plan and product overview. <a href="#">Learn more</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <a href="#">
+                                <img class="card-img-top img-raised" src="{% static 'img/work-2.jpg' %}"  alt="Blog 2">
+                            </a>
+                            <div class="card-body px-0">
+                                <a href="#">
+                                    <h4 class="card-title mb-2"><a href="#">Market/Industry analysis.</a></h4>
+                                    <p class="text-muted small-xl mb-2">December 16, 2023</p>
+                                    <p class="card-text"> Market and industry analysis to assess opportunity. <a href="#">Learn more</a></p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <a href="#">
+                                <img class="card-img-top img-raised" src="{% static 'img/work-3.jpg' %}"  alt="Blog 3">
+                            </a>
+                            <div class="card-body px-0">
+                                <a href="#">
+                                    <h4 class="card-title mb-2"><a href="https://www.sec.gov/reportspubs/investor-publications/investorpubsrule144">SEC Regulations</a></h4>
+                                    <p class="text-muted small-xl mb-2">December 2nd, 2023</p>
+                                    <p class="card-text">Linked SEC regulations related to Rule 144 offer guidance on restricted securities. <a href="https://www.sec.gov/reportspubs/investor-publications/investorpubsrule144">Learn more</a></p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--subscribe section-->
+        <section class="py-6 bg-hero colored" id="subscribe" style="background-image: url('/static/img/parallex2.jpg')">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 mx-auto text-center">
+                        <h2 class="text-capitalize text-white">Sign up now to receive the latest updates from Flagler</h2>
+                        <div class="divider mx-auto bg-light"></div>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-md-5 mx-auto">
+                        <form method="post" novalidate>
+                            {% csrf_token %}
+                            <div class="form-group">
+                                {{ subscriberform.name }}
+                            </div>
+                            <div class="form-group">
+                                {{ subscriberform.email }}
+                            </div>
+                            <div class="form-group">
+                                {{ subscriberform.message }}
+                            </div>
+                            <div class="text-center mt-4">
+                                <button type="submit" value="OK" class="btn btn-primary">Subscribe now</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+      {% else %}
+
+      {% endif %}
+        <!--footer / contact-->
+        <footer class="py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 my-auto text-center text-md-left">
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <ul class="list-inline social social-rounded social-sm mb-0">
+                            <li>For more information, see our Disclosures and Privacy Policy.
+                            Convertable Bonds can are risky and aren’t suitable for all investors. To learn more, read the Bonds Disclosure Document.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                </div>
+            </div>
+        </footer>
+
+        <!--scroll to top-->
+        <div class="scroll-top">
+            <i class="fa fa-angle-up" aria-hidden="true"></i>
+        </div>
+
+
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.7.0/feather.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+        <script src="{% static 'js/jquery.countdown.min.js' %}"></script>
+        <script src="{% static 'js/scripts.js' %}"></script>
+
+    </body>
+</html>
