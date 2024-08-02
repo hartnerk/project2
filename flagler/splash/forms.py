@@ -15,3 +15,9 @@ class SubscriberForm(forms.Form):
         self.fields['email'].widget.attrs.update({'class': 'form-control', 'placeholder':'Your email address'})
         self.fields['message'].widget.attrs.update({'class': 'form-control', 'placeholder':'What questions do you have?'})
 
+class FeedbackForm(forms.Form):
+    answer = forms.CharField(max_length=50)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['answer'].widget.attrs.update({'class': 'form-control', 'placeholder':'Answer'})

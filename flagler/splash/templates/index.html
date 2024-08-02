@@ -24,7 +24,7 @@
 
         <!--navigation-->
         <nav class="navbar navbar-expand-md navbar-dark fixed-top sticky-navigation" id="fame-navbar">
-            <a class="navbar-brand" href="index.html" >
+            <a class="navbar-brand" href="" >
                 Flagler
             </a>
             <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" 
@@ -45,12 +45,15 @@
                     <li class="nav-item">
                         <a class="nav-link page-scroll" href="#blog">Blog</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link page-scroll" href="#feedback">Feedback</a>
+                    </li>
                 </ul>
-                <form class="form-inline">
+<!--                 <form class="form-inline">
                     <a class="btn btn-primary page-scroll" href="#subscribe">
                         Subscribe
                     </a>
-                </form>
+                </form> -->
             </div>
         </nav>
 
@@ -70,9 +73,9 @@
                             <li class="seperator">:</li>
                             <li><span class="seconds">00</span><p class="seconds_text">Seconds</p></li>
                         </ul>
-                        <a href="#subscribe" class="btn btn-primary page-scroll d-inline-flex flex-row align-item-center">
+                        <a href="#feedback" class="btn btn-primary page-scroll d-inline-flex flex-row align-item-center">
                             <em class="mr-2" data-feather="mail" width="20" height="20"></em>
-                            Subscribe
+                            Feedback
                         </a>
                         <a href="#about" class="btn btn-light ml-2 page-scroll d-inline-flex flex-row align-item-center">
                             <em class="mr-2" data-feather="info" width="20" height="20"></em>
@@ -162,6 +165,7 @@
             </div>
         </section>
 
+
         <!--team section-->
         <section class="py-7 bg-light " id="team">
             <div class="container">
@@ -169,7 +173,7 @@
                     <div class="col-md-7 mx-auto text-center">
                         <h2 class="text-capitalize">Meet our team</h2>
                         <p class="lead text-muted">
-                            Diverse team that has both successful exits and finance experience creates a dynamic and driven group poised for success. 
+                            Diverse team that has both successful exits and finance experience and is driven group poised for success. 
                         </p>
                         <div class="divider mx-auto bg-primary"></div>
                     </div>
@@ -177,10 +181,9 @@
                 <div class="row mt-5 teams">
                     <div class="col-md-4 text-center">
                         <a href="#"><img src="{% static 'img/team-1.jpg' %}" class="img-team" alt="Team 1"/></a>
-                        <h5 class="mt-3">John Doe</h5>
+                        <h5 class="mt-3">Kyle Hartner</h5>
                         <p>Founder & Designer</p>
                         <div class="social-icons">
-                            <a href="#" class="mr-2"><em class="fa fa-facebook"></em></a>
                             <a href="#" class="mr-2"><em class="fa fa-linkedin"></em></a>
                             <!-- <a href="#"><em class="fa fa-dribbble"></em></a> -->
                         </div>
@@ -190,16 +193,14 @@
                         <h5 class="mt-3">David Collin</h5>
                         <p>Adviser</p>
                         <div class="social-icons">
-                            <a href="#" class="mr-2"><em class="fa fa-facebook"></em></a>
                             <a href="#" class="mr-2"><em class="fa fa-linkedin"></em></a>
                         </div>
                     </div>
                     <div class="col-md-4 text-center">
                         <a href="#"><img src="{% static 'img/team-1.jpg' %}"  class="img-team" alt="Team 3"/></a>
-                        <h5 class="mt-3">Selena Jones</h5>
+                        <h5 class="mt-3">Coming Soon</h5>
                         <p>Broker</p>
                         <div class="social-icons">
-                            <a href="#" class="mr-2"><em class="fa fa-facebook"></em></a>
                             <a href="#" class="mr-2"><em class="fa fa-linkedin"></em></a>
                         </div>
                     </div>
@@ -265,7 +266,7 @@
         </section>
 
         <!--subscribe section-->
-        <section class="py-6 bg-hero colored" id="subscribe" style="background-image: url('/static/img/parallex2.jpg')">
+<!--         <section class="py-6 bg-hero colored" id="subscribe" style="background-image: url('/static/img/parallex2.jpg')">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 mx-auto text-center">
@@ -293,6 +294,38 @@
                     </div>
                 </div>
             </div>
+        </section> -->
+
+         <!--feedback section-->
+        <section class="py-6 bg-hero colored" id="feedback" style="background-image: url('/static/img/parallex2.jpg')">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 mx-auto text-center">
+                        <h2 class="text-capitalize text-white">Help us build Flagler</h2>
+                        <div class="divider mx-auto bg-light"></div>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col-md-5 mx-auto">
+                        <form method="post" novalidate>
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <p class="lead text-muted">
+                                    {{ surveyquestion }}
+                                </p>
+                                
+                            <div class="form-group">
+                                <p class="lead text-muted">
+                                {{ feedbackform.answer }}
+                                </p>
+                            </div>
+                            <div class="text-center mt-4">
+                                <button type="submit" value="OK" class="btn btn-primary">Thanks for you're feedback</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!--footer / contact-->
@@ -304,7 +337,7 @@
                     <div class="col-md-4 text-center">
                         <ul class="list-inline social social-rounded social-sm mb-0">
                             <li>For more information, see our Disclosures and Privacy Policy.
-                            Convertible Bonds can are risky and aren’t suitable for all investors. To learn more, read the Bonds Disclosure Document.
+                            Convertible Bonds are risky and aren’t suitable for all investors. To learn more, read the Bonds Disclosure Document.
                             </li>
                         </ul>
                     </div>
@@ -328,6 +361,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
         <script src="{% static 'js/jquery.countdown.min.js' %}"></script>
         <script src="{% static 'js/scripts.js' %}"></script>
+       
         <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZETNDXNZ21"></script>
         <script>
@@ -336,6 +370,14 @@
           gtag('js', new Date());
 
           gtag('config', 'G-ZETNDXNZ21');
+        </script>
+
+        <script type="text/javascript">
+            (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "ngy2l5vq89");
         </script>
     </body>
 </html>

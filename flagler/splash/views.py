@@ -1,17 +1,24 @@
+
 from django.shortcuts import render
-from .forms import SubscriberForm
-from .models import MailingList
+from .forms import FeedbackForm
+from .models import SurveyQuestion, SurveyAnswer
+import random
 # Create your views here.
 def splash(request):
-	subscriberform = SubscriberForm(request.POST)
+	questionnumber = random.randrange(1,4)
+	surveyquestion = SurveyQuestion.objects.get(id=int(questionnumber))
+
+
+	feedbackform = FeedbackForm(request.POST)
 	if request.method == 'POST':
-		if subscriberform.is_valid():
-			ml = MailingList(
-			    name = subscriberform.cleaned_data['name'],
-			    email = subscriberform.cleaned_data['email'],  
-			    message = subscriberform.cleaned_data['message']
+		
+
+		if feedbackform.is_valid():
+			sa = SurveyAnswer(  
+				question = surveyquestion,
+			    answer = feedbackform.cleaned_data['answer'],
 			)
-			ml.save()
+			sa.save()
 		else:
-			subscriberform = SubscriberForm()
-	return render(request, 'index.html', {'subscriberform': subscriberform})
+			feedbackform = FeedbackForm()
+	return render(request, 'index.html', {'feedbackform': feedbackform, "surveyquestion":surveyquestion})
