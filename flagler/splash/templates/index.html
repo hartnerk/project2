@@ -49,11 +49,6 @@
                         <a class="nav-link page-scroll" href="#feedback">Feedback</a>
                     </li>
                 </ul>
-<!--                 <form class="form-inline">
-                    <a class="btn btn-primary page-scroll" href="#subscribe">
-                        Subscribe
-                    </a>
-                </form> -->
             </div>
         </nav>
 
@@ -229,7 +224,7 @@
                             <div class="card-body px-0">
                                 <h4 class="card-title mb-2"><a href="#">Investment opportunity. </a></h4>
                                 <p class="text-muted small-xl mb-2">January 27, 2023</p>
-                                <p class="card-text">Review the investment opportunity business plan and product overview. <a href="#">Learn more</a></p>
+                                <p class="card-text">Review the basics behind how convertible bonds work. <a href="https://www.investopedia.com/terms/c/convertiblebond.asp">Learn more</a></p>
                             </div>
                         </div>
                     </div>
@@ -242,7 +237,7 @@
                                 <a href="#">
                                     <h4 class="card-title mb-2"><a href="#">Market/Industry analysis.</a></h4>
                                     <p class="text-muted small-xl mb-2">December 16, 2023</p>
-                                    <p class="card-text"> Market and industry analysis to assess opportunity. <a href="#">Learn more</a></p>
+                                    <p class="card-text"> Market and industry analysis to assess opportunity. <a href="https://www.lazardassetmanagement.com/docs/-m0-/220375/ConvertibleBonds-AreTheStarsAligned.pdf">Learn more</a></p>
                                 </a>
                             </div>
                         </div>
@@ -265,36 +260,6 @@
             </div>
         </section>
 
-        <!--subscribe section-->
-<!--         <section class="py-6 bg-hero colored" id="subscribe" style="background-image: url('/static/img/parallex2.jpg')">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 mx-auto text-center">
-                        <h2 class="text-capitalize text-white">Sign up now to receive the latest updates from Flagler</h2>
-                        <div class="divider mx-auto bg-light"></div>
-                    </div>
-                </div>
-                <div class="row mt-5">
-                    <div class="col-md-5 mx-auto">
-                        <form method="post" novalidate>
-                            {% csrf_token %}
-                            <div class="form-group">
-                                {{ subscriberform.name }}
-                            </div>
-                            <div class="form-group">
-                                {{ subscriberform.email }}
-                            </div>
-                            <div class="form-group">
-                                {{ subscriberform.message }}
-                            </div>
-                            <div class="text-center mt-4">
-                                <button type="submit" value="OK" class="btn btn-primary">Subscribe now</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section> -->
 
          <!--feedback section-->
         <section class="py-6 bg-hero colored" id="feedback" style="background-image: url('/static/img/parallex2.jpg')">
@@ -304,27 +269,9 @@
                         <h2 class="text-capitalize text-white">Help us build Flagler</h2>
                         <div class="divider mx-auto bg-light"></div>
                     </div>
+                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfqJmzHkdY1ARpb8tzNG0cxwfaTfsqd8f0V4TUL_39Gf_0m_Q/viewform?embedded=true" display="block" width="100%"  height="1847" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
                 </div>
-                <div class="row mt-5">
-                    <div class="col-md-5 mx-auto">
-                        <form method="post" novalidate>
-                            {% csrf_token %}
-                            <div class="form-group">
-                                <p class="lead text-muted">
-                                    {{ surveyquestion }}
-                                </p>
-                                
-                            <div class="form-group">
-                                <p class="lead text-muted">
-                                {{ feedbackform.answer }}
-                                </p>
-                            </div>
-                            <div class="text-center mt-4">
-                                <button type="submit" value="OK" class="btn btn-primary">Thanks for you're feedback</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+
             </div>
         </section>
 
